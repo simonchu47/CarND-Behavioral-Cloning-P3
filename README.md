@@ -1,7 +1,8 @@
 
 # Behavioral Cloning Project
 
-The goals / steps of this project are the following:
+This project is the third project of Udacity Self-driving Car Nanodegree Term1. The goals / steps of this project are the following:
+
 * Use the simulator to collect data of good driving behavior
 * Build, a convolution neural network in Keras that predicts steering angles from images
 * Train and validate the model with a training and validation set
@@ -21,49 +22,53 @@ The goals / steps of this project are the following:
 [image8]: ./examples/loss_compare_2.png "Loss Compare"
 
 ---
-### Files Submitted & Code Quality
+### Files & Code Quality
 
-#### 1. Submission includes all required files and can be used to run the simulator in autonomous mode
+#### 1. All required files which can be used to run the simulator in autonomous mode
 
 My project includes the following files:
+
 * model.py containing the script to create and train the model
 * drive.py for driving the car in autonomous mode
 * model.h5 containing a trained convolution neural network 
-* writeup_report.md or writeup_report.pdf summarizing the results
+* summary of the results
 
-#### 2. Submission includes functional code
-Using the Udacity provided simulator and my drive.py file, the car can be driven autonomously around the track by executing 
+There is a guide [here](https://github.com/simonchu47/CarND-Behavioral-Cloning-P3/blob/master/HOWTO.md) showing how to prepare the environment.
+
+#### 2. How to drive the car in autonomous mode
+Using the Udacity provided simulator and my drive.py file, the car can be driven autonomously around the track by executing
+ 
 ```sh
-python drive.py model.h5
+$ python drive.py model.h5
 ```
 
-#### 3. Submission code is usable and readable
+#### 3. How to train the model
 
 The model.py file contains the code for training and saving the convolution neural network. The file shows the pipeline I used for training and validating the model, and it contains comments to explain how the code works.
 
 ### Model Architecture and Training Strategy
 
-#### 1. An appropriate model architecture has been employed
+#### 1. The model architecture
 
 My model consists of a convolution neural network similar to NVIDIA's one, including the following layers.
 
-Layer 1, a convolutional feature mapping with a 5x5 filter size and depth 24, following with max pooling 2x2 and RELU activation.
+* Layer 1, a convolutional feature mapping with a 5x5 filter size and depth 24, following with max pooling 2x2 and RELU activation.
 
-Layer 2, a convolutional feature mapping with a 5x5 filter size and depth 36, following with max pooling 2x2 and RELU activation.
+* Layer 2, a convolutional feature mapping with a 5x5 filter size and depth 36, following with max pooling 2x2 and RELU activation.
 
-Layer 3, a convolutional feature mapping with a 5x5 filter size and depth 48, following with max pooling 2x2 and RELU activation.
+* Layer 3, a convolutional feature mapping with a 5x5 filter size and depth 48, following with max pooling 2x2 and RELU activation.
 
-Layer 4, a convolutional feature mapping with a 3x3 filter size and depth 64, following with RELU activation.
+* Layer 4, a convolutional feature mapping with a 3x3 filter size and depth 64, following with RELU activation.
 
-Layer 5, a convolutional feature mapping with a 3x3 filter size and depth 64, following with RELU activation and is then flatten.
+* Layer 5, a convolutional feature mapping with a 3x3 filter size and depth 64, following with RELU activation and is then flatten.
 
-Layer 6, a fully-connected layer to 100 neurons.
+* Layer 6, a fully-connected layer to 100 neurons.
 
-Layer 7, a fully-connected layer to 50 neurons.
+* Layer 7, a fully-connected layer to 50 neurons.
 
-Layer 8, a fully-connected layer to 10 neurons.
+* Layer 8, a fully-connected layer to 10 neurons.
 
-Layer 9, a fully-connected layer to 1 output.
+* Layer 9, a fully-connected layer to 1 output.
 
 Before the structure, fed-in images are first cropped(top 50 pixels and bottom 20 pixels with original resolution 160x320) and then normalized.
 
@@ -88,7 +93,7 @@ I used a combination of center lane driving, recovering from the left and right 
 
 For details about how I created the training data, see the next section. 
 
-### Model Architecture and Training Strategy
+### Model Design and Training Strategy
 
 #### 1. Solution Design Approach
 
